@@ -18,16 +18,16 @@ namespace ToDoApi.Repositories
             var userId = _tokenService.GetUserId();
 
             var totalTasks = await _appDbContext.TaskItem
-                                                   .Where(x => x.UserId == userId)
-                                                   .CountAsync();
+                                                .Where(x => x.UserId == userId)
+                                                .CountAsync();
 
             var tasks = await _appDbContext.TaskItem
-                                                        .Where(x => x.UserId == userId)
-                                                        .OrderBy(x => x.Title)  
-                                                        .Skip((pageNumber - 1) * pageSize)
-                                                        .Take(pageSize)  
-                                                        .AsNoTracking()
-                                                        .ToListAsync();
+                                           .Where(x => x.UserId == userId)
+                                           .OrderBy(x => x.Title)  
+                                           .Skip((pageNumber - 1) * pageSize)
+                                           .Take(pageSize)  
+                                           .AsNoTracking()
+                                           .ToListAsync();
 
             return new PagedResultViewModel<TaskItem>(tasks, totalTasks, pageNumber, pageSize);
         }
