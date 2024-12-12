@@ -1,0 +1,110 @@
+$btn-background: #6f19a0;
+$btn-background-hover: #500d77;
+$background-footer: #8d1bcf;
+$background-list-item: #ffff;
+$btn-color: #ffff;
+
+:host {
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  div.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  main.container {
+    margin-top: 0.5rem;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .btn-primary-circle {
+    position: relative;
+    top: -1px;
+    right: 40px;
+    width: 3.4rem;
+    border-radius: 50%;
+    transition: 0.5s;
+    cursor: pointer;
+    background-color: $btn-background;
+    border: none;
+  }
+
+  .btn-primary-circle::after {
+    content: "+";
+    font-weight: 600;
+    font-size: 2.7rem;
+  }
+
+  .add-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h1 {
+    margin: 0.5rem;
+  }
+
+  h4 {
+    margin: 0;
+  }
+
+  input {
+    border-radius: 17px;
+    border: none;
+    padding: 1rem;
+    width: 23rem;
+    padding-right: 2.6rem;
+    font-size: 1rem;
+    margin-left: 0.7rem;
+  }
+
+  input:focus {
+    outline: none;
+    border: none;
+  }
+
+  footer {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:$background-footer;
+
+    .btn-logout {
+      border: none;
+      background-color: $btn-background;
+      border-radius: 7px;
+      cursor: pointer;
+      margin: 0.2rem;
+      font-size: 1rem;
+      padding: 0.2rem 0.5rem;
+      span {
+        color: $btn-color;
+      }
+      i {
+        margin-left: 0.3rem;
+        position: relative;
+        top: 1px;
+        font-size: 0.9rem;
+        color: $btn-color;
+        font-size: 1rem;
+      }
+    }
+
+    .btn-logout:hover{
+      background-color: $btn-background-hover;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+<section class="register">
+        <div class="register-content">
+                <form [formGroup]="registerForm" (ngSubmit)="submitRegister()">
+                        <div class="flex">
+                                <div class="flex">
+                                        <label for="userName">Usuário</label>
+                                        <input formControlName="userName" placeholder="Digite seu Usuário"
+                                                id="userName" />
+                                        <small
+                                                *ngIf="registerForm.get('userName')?.hasError('required') && registerForm.get('userName')?.touched">Preencha
+                                                o campo Usuário.</small>
+                                        <small
+                                                *ngIf="registerForm.controls.userName?.hasError('minlength') && registerForm.controls.userName?.touched">O
+                                                nome de usuário deve ter pelo menos 3
+                                                caracteres.</small>
+                                </div>
+                                <div class="flex">
+                                        <label for="password">Senha</label>
+                                        <input type="password" formControlName="password" placeholder="Digite sua Senha"
+                                                id="password" />
+                                        <small
+                                                *ngIf="registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched">Preencha
+                                                o campo Senha.</small>
+                                        <small
+                                                *ngIf="registerForm.get('password')?.hasError('minlength') && registerForm.get('password')?.touched">A
+                                                senha deve ter pelo menos 6 caracteres.</small>
+                                </div>
+                                <div class="flex">
+                                        <label for="confirmPassword">Confirmar Senha</label>
+                                        <input type="password" formControlName="confirmPassword"
+                                                placeholder="Digite sua Senha Novamente" id="confirmPassword" />
+                                        <small
+                                                *ngIf="registerForm.get('confirmPassword')?.hasError('required') && registerForm.get('confirmPassword')?.touched">Preencha
+                                                o campo Confirmar Senha.</small>
+                                        <small
+                                                *ngIf="registerForm.get('confirmPassword')?.hasError('minlength') && registerForm.get('confirmPassword')?.touched">A
+                                                senha deve ter pelo menos 6 caracteres.</small>
+                                        <small
+                                                *ngIf="!passwordsMatch() && registerForm.get('confirmPassword')?.touched">
+                                                As senhas não coincidem.
+                                        </small>
+                                </div>
+                                <div class="content-btn-register">
+                                        <button id="btn-register">Cadastrar</button>
+                                </div>
+                        </div>
+                </form>
+        </div>
+        <div class="background-register">
+                <div class="content-background-register">
+                        <h2>Bem-vindo ao Cadastro</h2>
+                        <h4>Já possui conta?</h4>
+                        <button>
+                                <a [routerLink]="['/login']">Entrar</a>
+                        </button>
+                </div>
+        </div>
+</section>

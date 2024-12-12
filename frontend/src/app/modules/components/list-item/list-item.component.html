@@ -1,0 +1,27 @@
+<div class="list-item">
+        <div *ngFor="let item of taskItems?.tasks; let i = index" class="list-content">
+                <div class="content">
+                        <h4 [ngClass]="{'line-through': item.completed}">{{ item.title }}</h4>
+                        <span [ngClass]="{'line-through': item.completed}">{{ item.description }}</span>
+                </div>
+                <div class="actions">
+                        <button *ngIf="!item.completed" (click)="updateCompleted(item)"><i
+                                        class="bx bx-check"></i></button>
+                        <button *ngIf="!item.completed" (click)="openModalUpdate(item)"><i
+                                        class="bx bx-pencil"></i></button>
+                        <button (click)="openModalDelete(item.id!)"><i class="bx bx-trash"></i></button>
+                </div>
+        </div>
+</div>
+
+<div class="list-item-footer" *ngIf="taskItems">
+        <button (click)="onPageChange(taskItems.currentPage - 1)" [disabled]="taskItems.currentPage === 1">
+                Anterior
+        </button>
+        <span>Página {{ taskItems.currentPage }} de {{ taskItems.totalPages }}</span>
+        <button (click)="onPageChange(taskItems!.currentPage + 1)"
+                [disabled]="taskItems.currentPage === taskItems.totalPages">
+                Próxima
+        </button>
+        <input type="number" [(ngModel)]="taskItems!.pageSize" min="1" (ngModelChange)="onPageSizeChange(taskItems!.pageSize)">
+</div>

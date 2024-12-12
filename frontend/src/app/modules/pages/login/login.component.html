@@ -1,0 +1,36 @@
+<section class="login">
+        <div class="login-content">
+                <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+                        <div class="flex">
+                                <div class="flex">
+                                        <label for="userName">Usuário</label>
+                                        <input formControlName="userName" placeholder="Digite seu Usuário"
+                                                id="userName" />
+                                        <small
+                                                *ngIf="loginForm.get('userName')?.hasError('required') && loginForm.get('userName')?.touched">Preencha
+                                                o campo Usuário.</small>
+                                </div>
+                                <div class="flex">
+                                        <label for="password">Senha</label>
+                                        <input type="password" formControlName="password" placeholder="Digite sua Senha"
+                                                id="password" />
+                                        <small
+                                                *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">Preencha
+                                                o campo Senha.</small>
+                                </div>
+                                <div class="content-btn-login">
+                                        <button id="btn-login">Login</button>
+                                </div>
+                        </div>
+                </form>
+        </div>
+        <div class="background-login">
+                <div class="content-background-login">
+                        <h2>Bem-vindo ao Login</h2>
+                        <h4>Não possui conta?</h4>
+                        <button>
+                                <a [routerLink]="['/register']" routerLinkActive="router-link-active">Cadastrar</a>
+                        </button>
+                </div>
+        </div>
+</section>

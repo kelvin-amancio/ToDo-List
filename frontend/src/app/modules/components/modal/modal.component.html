@@ -1,0 +1,23 @@
+<div class="modal-overlay" *ngIf="isVisible">
+        <div class="modal-content">
+                <div class="modal-header">
+                        <button class="close-button" (click)="close()">X</button>
+                </div>
+                <div class="modal-body">
+                        <div class="flex">
+                                <label for="title">Título</label>
+                                <input [(ngModel)]="taskItemUpdateOrAdd!.title" id="title" type="text"
+                                        placeholder="Digite o título" autofocus>
+                        </div>
+                        <div class="flex">
+                                <label for="description">Descrição</label>
+                                <input [(ngModel)]="taskItemUpdateOrAdd!.description" (keyup.enter)="updateTaskItem()"
+                                        id="description" type="text" placeholder="Digite a descrição">
+                        </div>
+                </div>
+                <div class="modal-footer">
+                        <button (click)="updateTaskItem()"
+                                [disabled]="!taskItemUpdateOrAdd?.title || !taskItemUpdateOrAdd?.description">Salvar</button>
+                </div>
+        </div>
+</div>

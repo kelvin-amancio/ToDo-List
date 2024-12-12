@@ -1,0 +1,29 @@
+<div class="container">
+        <app-list-item-header />
+</div>
+
+<section>
+        <div class="add-item">
+                <input *ngIf="isInputVisible()" #inputTitleValue [(ngModel)]="inputData().title" type="text"
+                        (keyup.enter)="addItem(inputData())" placeholder="Adicione o Título">
+                <input *ngIf="!isInputVisible()" #inputDescriptionValue [(ngModel)]="inputData().description"
+                        type="text" (keyup.enter)="addItem(inputData())" placeholder="Adicione a Descrição">
+                <button class="btn-primary-circle" (click)="addItem(inputData())"></button>
+        </div>
+</section>
+
+<main class="container">
+        <app-list-item [taskItems]="getTaskItems()" [(isVisible)]="isModalVisible"
+                (taskItemDelete)="modalDelete($event)" (taskItemUpdateCompleted)="updateConfirmTaskItem($event)"
+                (taskItem)="openModal($event)" (taskItemPageChange)="getAll($event)" />
+</main>
+
+<footer>
+        <button class="btn-logout" (click)="logout()">
+                <span>Sair</span>
+                <i class="bx bx-exit"></i>
+        </button>
+</footer>
+
+<app-modal [taskItemUpdateOrAdd]="taskItemUpdateOrAdd()" (outputUpdateOrAddTaskItem)="updateOrAddTaskItem($event)"
+        [(isVisible)]="isModalVisible" (closed)="onModalClose()" />
