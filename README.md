@@ -54,7 +54,7 @@ O backend é responsável por:
 - **POST /api/Auth/register**: Registra um novo usuário com senha criptografada.
 - **GET /api/TaskItem**: Retorna uma lista de tarefas paginada.
 - **POST /api/TaskItem**: Cria uma tarefa.
-- **PUT /api/TaskItem/{id}**: Atualiza uma tarefa existente.
+- **PUT /api/TaskItem**: Atualiza uma tarefa existente.
 - **DELETE /api/TaskItem/{id}**: Remove uma tarefa.
 
 ---
