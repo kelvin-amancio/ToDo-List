@@ -48,6 +48,7 @@ O backend é responsável por:
 - **Services**: Lógica de negócios.
 - **ViewModels**: Modelos utilizados nas respostas.
 - **IoC**: Injeções de dependências.
+- **Testes unitários**: Tarefa e Usuário
 
 ### Principais Funcionalidades da API:
 - **POST /api/Auth/login**: Realiza o login de um usuário e retorna um token JWT.
